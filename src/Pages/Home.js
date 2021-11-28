@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "../Components/Banner/Banner";
+import Footer from "../Components/Footer/Footer";
 
 import Header from "../Components/Header/Header";
 import Post from "../Components/Posts/Post";
@@ -10,6 +11,7 @@ function Home() {
             <Header />
             <Banner />
             <Post />
+            <Footer />
         </div>
     )
 }
