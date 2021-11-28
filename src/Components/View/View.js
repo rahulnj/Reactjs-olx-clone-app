@@ -12,7 +12,7 @@ function View() {
             </div>
             <div className="rightSection">
                 <div className="productDetails">
-                    <p>&#x20B9; 250000 </p>
+                    <p>₹ 250000 </p>
                     <span>YAMAHA R15V3</span>
                     <p>Two Wheeler</p>
                     <span>Tue May 04 2021</span>
