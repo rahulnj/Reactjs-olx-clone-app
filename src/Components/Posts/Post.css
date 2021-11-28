@@ -26,6 +26,11 @@
     display: flex;
   }
 
+  
+  .moreView .cards::-webkit-scrollbar{
+    display: none;
+}
+
   .moreView .cards {
     white-space: nowrap;
     overflow-x: scroll;
@@ -40,6 +45,10 @@
     height: 270px;
     display: inline-block;
     cursor: pointer;
+    border: solid 0.3px;
+    border-color: rgb(181, 191, 201);
+    border-radius: 6px;
+    background-color: white;
   }
 
   .card .favourite {
@@ -90,3 +99,5 @@
     font-size: 24px;
     color: #002f34;
   }
+
+  
