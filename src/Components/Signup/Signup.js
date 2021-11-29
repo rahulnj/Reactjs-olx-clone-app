@@ -1,56 +1,62 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 
 import './Signup.css';
-
 import Logo from '../../image/olx-logo.png';
+import { FirebaseContext } from '../../store/FirebaseContext';
 export default function Signup() {
+    const [username, setUserName] = useState("")
+    const [email, setEmail] = useState("")
+    const [phone, setPhone] = useState("")
+    const [password, setPassword] = useState("")
+    const firebase = useContext(FirebaseContext)
+
+    const handleSignup = (e) => {
+        e.preventDefault()
+
+    }
     return (
         <div>
             <div className="signupParentDiv">
                 <img width="200px" height="200px" src={Logo}></img>
-                <form>
+                <form onSubmit={handleSignup}>
                     <label htmlFor="fname">Username</label>
                     <br />
-                    <input
+                    <input onChange={(e) => setUserName(e.target.value)}
                         className="input"
                         type="text"
-                        id="fname"
+                        id="name"
                         name="name"
-                        defaultValue="John"
                     />
                     <br />
                     <label htmlFor="fname">Email</label>
                     <br />
-                    <input
+                    <input onChange={(e) => setEmail(e.target.value)}
                         className="input"
                         type="email"
                         id="fname"
                         name="email"
-                        defaultValue="John"
                     />
                     <br />
                     <label htmlFor="lname">Phone</label>
                     <br />
-                    <input
+                    <input onChange={(e) => setPhone(e.target.value)}
                         className="input"
                         type="number"
                         id="lname"
                         name="phone"
-                        defaultValue="Doe"
                     />
                     <br />
                     <label htmlFor="lname">Password</label>
                     <br />
-                    <input
+                    <input onChange={(e) => setPassword(e.target.value)}
                         className="input"
                         type="password"
-                        id="lname"
+                        id="password"
                         name="password"
-                        defaultValue="Doe"
                     />
                     <br />
                     <br />
-                    <button>Signup</button>
+                    <button >Signup</button>
                 </form>
                 <a>Login</a>
             </div>

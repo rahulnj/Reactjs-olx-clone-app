@@ -46,4 +46,5 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
+    margin: 10px;
   }
