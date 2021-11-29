@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Signup.css';
 
-import Logo from '../../olx-logo.png';
+import Logo from '../../image/olx-logo.png';
 export default function Signup() {
     return (
         <div>
