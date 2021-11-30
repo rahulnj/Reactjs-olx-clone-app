@@ -36,7 +36,7 @@ export default function Signup() {
                     username: username,
                     phone: phone
                 }).then(() => {
-                    navigate('/signin')
+                    navigate('/login')
                 })
                 console.log(user);
             })

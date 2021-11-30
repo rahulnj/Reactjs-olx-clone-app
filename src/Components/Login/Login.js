@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Logo from '../../olx-logo.png';
+import Logo from '../../image/olx-logo.png';
 import './Login.css';
 
 function Login() {
@@ -16,7 +16,6 @@ function Login() {
                         type="email"
                         id="fname"
                         name="email"
-                        defaultValue="John"
                     />
                     <br />
                     <label htmlFor="lname">Password</label>
@@ -26,7 +25,6 @@ function Login() {
                         type="password"
                         id="lname"
                         name="password"
-                        defaultValue="Doe"
                     />
                     <br />
                     <br />
