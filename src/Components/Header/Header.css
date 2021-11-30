@@ -93,6 +93,10 @@ outline-color: transparent;
     .loginPage a{
     text-decoration: none;
   } 
+
+  .loginPage span{
+    cursor: pointer;
+  }
   
   .sellMenu {
     position: relative;
