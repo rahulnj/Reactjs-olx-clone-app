@@ -1,5 +1,9 @@
 import React, { useState, useContext } from 'react';
-
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+    getFirestore, collection, addDoc
+} from 'firebase/firestore'
+import { Link, useNavigate } from "react-router-dom"
 import './Signup.css';
 import Logo from '../../image/olx-logo.png';
 import { FirebaseContext } from '../../store/FirebaseContext';
@@ -9,10 +13,38 @@ export default function Signup() {
     const [phone, setPhone] = useState("")
     const [password, setPassword] = useState("")
     const firebase = useContext(FirebaseContext)
+    const navigate = useNavigate()
+    //initiliaze services
+    const db = getFirestore()
+
+    //collection ref
+
+    const colRef = collection(db, 'users')
 
     const handleSignup = (e) => {
         e.preventDefault()
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
 
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+                console.log("kerii");
+                addDoc(colRef, {
+                    id: userCredential.user.uid,
+                    username: username,
+                    phone: phone
+                }).then(() => {
+                    navigate('/signin')
+                })
+                console.log(user);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
     }
     return (
         <div>
