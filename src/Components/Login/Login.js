@@ -6,7 +6,7 @@ import {
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Logo from '../../image/olx-logo.png';
 import './Login.css';
-import { FirebaseContext } from '../../store/FirebaseContext';
+import { FirebaseContext } from '../../store/Context';
 
 function Login() {
     const [email, setEmail] = useState("")
