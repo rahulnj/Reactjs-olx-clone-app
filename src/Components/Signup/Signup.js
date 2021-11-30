@@ -30,7 +30,6 @@ export default function Signup() {
                 // Signed in 
                 const user = userCredential.user;
                 // ...
-                console.log("kerii");
                 addDoc(colRef, {
                     id: userCredential.user.uid,
                     username: username,
