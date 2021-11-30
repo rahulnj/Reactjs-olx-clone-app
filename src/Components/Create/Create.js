@@ -1,12 +1,13 @@
 import React, { Fragment, useContext, useState } from 'react';
 import './Create.css';
+import { Link, useNavigate } from "react-router-dom"
 import Header from '../Header/Header';
 import { FirebaseContext, AuthContext } from '../../store/Context';
-import {
-    getFirestore, collection, addDoc
-} from 'firebase/firestore'
+import { getFirestore, collection, addDoc } from 'firebase/firestore'
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+
 const Create = () => {
+    const navigate = useNavigate()
     const { user } = useContext(AuthContext)
     const [name, setName] = useState("")
     const [category, setCategory] = useState("")
@@ -33,6 +34,7 @@ const Create = () => {
                     userId: user.uid,
                     createdAt: date.toDateString()
                 });
+                navigate('/')
             })
 
 
