@@ -90,7 +90,7 @@ export default function Signup() {
                     <br />
                     <button >Signup</button>
                 </form>
-                <a>Login</a>
+                <Link className='link' to='/login'>Login</Link>
             </div>
         </div>
     );

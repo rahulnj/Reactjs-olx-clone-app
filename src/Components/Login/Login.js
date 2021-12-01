@@ -62,7 +62,7 @@ function Login() {
                     <br />
                     <button>Login</button>
                 </form>
-                <a>Signup</a>
+                <Link className='link' to='/signup'>Signup</Link>
             </div>
         </div>
     );

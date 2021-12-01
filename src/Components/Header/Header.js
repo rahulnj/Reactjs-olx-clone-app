@@ -39,25 +39,44 @@ function Header() {
                     <Arrow />
                 </div>
                 <div className="loginPage">
-                    <span>{user ? `Hi,${user.displayName}` : 'Login'}</span>
+                    <span onClick={() => {
+                        if (user) {
+
+                        } else {
+
+                            navigate('/login')
+                        }
+                    }}>{user ? `Hi,${user.displayName}` : 'Login'}
+
+                    </span>
                     <hr />
                 </div>
-                {user && <span onClick={() => {
-                    const auth = getAuth();
-                    signOut(auth).then(() => {
-                        navigate('/login')
-                    }).catch((error) => {
-                    });
-                }}>Logout</span>}
+                {user && <span
+                    onClick={() => {
+                        const auth = getAuth();
+                        signOut(auth).then(() => {
+                            navigate('/login')
+                        }).catch((error) => {
+                        });
+                    }}>Logout</span>}
                 <div className="sellMenu">
                     <SellButton />
                     <div className="sellMenuContent">
                         <SellButtonPlus />
-                        <span>SELL</span>
+                        <span
+                            onClick={() => {
+                                if (user) {
+                                    navigate('/create')
+                                } else {
+
+
+                                }
+                            }}
+                        >SELL</span>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
