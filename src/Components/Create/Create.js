@@ -9,11 +9,12 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 const Create = () => {
     const navigate = useNavigate()
     const { user } = useContext(AuthContext)
+    console.log(user);
+
     const [name, setName] = useState("")
     const [category, setCategory] = useState("")
     const [price, setPrice] = useState("")
     const [image, setImage] = useState(null)
-
     const db = getFirestore()
     const colRef = collection(db, 'products')
     const storage = getStorage();

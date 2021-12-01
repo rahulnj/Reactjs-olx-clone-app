@@ -3,12 +3,16 @@ import Heart from '../../assets/Heart';
 import { FirebaseContext } from '../../store/Context';
 import './Post.css';
 import { doc, getDocs, getFirestore, collection } from "firebase/firestore";
+import { PostContext } from '../../store/PostContext';
+import { Link, useNavigate } from "react-router-dom"
 
 
 function Post() {
+    const navigate = useNavigate()
     const { firebase } = useContext(FirebaseContext)
     const [products, setProducts] = useState([])
 
+    const { setPostDetails } = useContext(PostContext)
 
     useEffect(() => {
         const db = getFirestore()
@@ -22,9 +26,11 @@ function Post() {
                 }
             })
             setProducts(allPost)
+
         })
 
     }, [])
+    console.log(products);
     return (
         <div className="postParentDiv">
             <div className="moreView">
@@ -35,7 +41,10 @@ function Post() {
                 <div className="cards">
                     {products.map(product => {
 
-                        return <div className="card">
+                        return <div className="card" onClick={() => {
+                            setPostDetails(product)
+                            navigate('/view')
+                        }}>
                             <div className="favourite">
                                 <Heart />
                             </div>
@@ -61,22 +70,30 @@ function Post() {
                     <span>Fresh Recommendations</span>
                 </div>
                 <div className="cards">
-                    <div className="card">
-                        <div className="favourite">
-                            <Heart />
+                    {products.map(product => {
+
+                        return <div className="card" onClick={() => {
+                            setPostDetails(product)
+                            navigate('/view')
+                        }}>
+                            <div className="favourite">
+                                <Heart />
+                            </div>
+                            <div className="image">
+                                <img src={product.downloadURL} alt="" />
+                            </div>
+                            <div className="content">
+                                <p className="rate">₹ {product.price}</p>
+                                <span className="km">{product.category}</span>
+                                <p className="name">{product.name}</p>
+                            </div>
+                            <div className="date">
+                                <span>{product.createdAt}</span>
+                            </div>
                         </div>
-                        <div className="image">
-                            <img src="../../../Images/R15V3.jpg" alt="" />
-                        </div>
-                        <div className="content">
-                            <p className="rate">₹ 45000</p>
-                            <span className="km">Two Wheeler</span>
-                            <p className="name">YAMAHA R15V3</p>
-                        </div>
-                        <div className="date">
-                            <span>Sun Nov 21 2021</span>
-                        </div>
-                    </div>
+                    })
+                    }
+
                 </div>
             </div>
         </div>
