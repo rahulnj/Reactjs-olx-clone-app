@@ -30,7 +30,6 @@ function Post() {
         })
 
     }, [])
-    console.log(products);
     return (
         <div className="postParentDiv">
             <div className="moreView">
